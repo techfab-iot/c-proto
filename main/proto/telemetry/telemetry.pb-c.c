@@ -441,7 +441,7 @@ const ProtobufCMessageDescriptor telemetry__telemetry_pack__descriptor =
   (ProtobufCMessageInit) telemetry__telemetry_pack__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[69] =
+static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[74] =
 {
   { "RESOURCE_UNSPECIFIED", "TELEMETRY__RESOURCE__RESOURCE_UNSPECIFIED", 0 },
   { "RESOURCE_TEMPERATURE", "TELEMETRY__RESOURCE__RESOURCE_TEMPERATURE", 1 },
@@ -512,11 +512,16 @@ static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[69] =
   { "RESOURCE_MESH_LEVEL", "TELEMETRY__RESOURCE__RESOURCE_MESH_LEVEL", 66 },
   { "RESOURCE_PRECIPITATION", "TELEMETRY__RESOURCE__RESOURCE_PRECIPITATION", 67 },
   { "RESOURCE_SIGNAL_STRENGTH", "TELEMETRY__RESOURCE__RESOURCE_SIGNAL_STRENGTH", 68 },
+  { "RESOURCE_BOOT_COUNT", "TELEMETRY__RESOURCE__RESOURCE_BOOT_COUNT", 75 },
+  { "RESOURCE_NETWORK_INTERFACE", "TELEMETRY__RESOURCE__RESOURCE_NETWORK_INTERFACE", 80 },
+  { "RESOURCE_LORA_RSSI", "TELEMETRY__RESOURCE__RESOURCE_LORA_RSSI", 90 },
+  { "RESOURCE_LORA_SNR", "TELEMETRY__RESOURCE__RESOURCE_LORA_SNR", 91 },
+  { "RESOURCE_LORA_DEVICE_ADDR", "TELEMETRY__RESOURCE__RESOURCE_LORA_DEVICE_ADDR", 92 },
 };
 static const ProtobufCIntRange telemetry__resource__value_ranges[] = {
-{0, 0},{0, 69}
+{0, 0},{75, 69},{80, 70},{90, 71},{0, 74}
 };
-static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[70] =
+static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[75] =
 {
   { "RESOURCE_ACCELERATION_X", 22 },
   { "RESOURCE_ACCELERATION_Y", 23 },
@@ -529,6 +534,7 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[70
   { "RESOURCE_BATTERY_LEVEL", 30 },
   { "RESOURCE_BATTERY_LEVEL_LOW", 33 },
   { "RESOURCE_BATTERY_VOLTAGE", 31 },
+  { "RESOURCE_BOOT_COUNT", 69 },
   { "RESOURCE_BREADTH", 10 },
   { "RESOURCE_BRIGHTENING", 50 },
   { "RESOURCE_BRIGHTNESS", 50 },
@@ -563,11 +569,15 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[70
   { "RESOURCE_LENGTH", 9 },
   { "RESOURCE_LOG", 46 },
   { "RESOURCE_LONGITUDE", 4 },
+  { "RESOURCE_LORA_DEVICE_ADDR", 73 },
+  { "RESOURCE_LORA_RSSI", 71 },
+  { "RESOURCE_LORA_SNR", 72 },
   { "RESOURCE_LUMINOUS_FLUX", 48 },
   { "RESOURCE_LUMINOUS_INTENSITY", 49 },
   { "RESOURCE_MANUFACTURING_DATE", 57 },
   { "RESOURCE_MESH_LEVEL", 66 },
   { "RESOURCE_MOISTURE", 41 },
+  { "RESOURCE_NETWORK_INTERFACE", 70 },
   { "RESOURCE_N_CONCENTRATION", 61 },
   { "RESOURCE_PH", 65 },
   { "RESOURCE_POWER", 6 },
@@ -596,30 +606,68 @@ const ProtobufCEnumDescriptor telemetry__resource__descriptor =
   "Resource",
   "Telemetry__Resource",
   "telemetry",
-  69,
+  74,
   telemetry__resource__enum_values_by_number,
-  70,
+  75,
   telemetry__resource__enum_values_by_name,
-  1,
+  4,
   telemetry__resource__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCEnumValue telemetry__network_type__enum_values_by_number[5] =
+static const ProtobufCEnumValue telemetry__network_interface_type__enum_values_by_number[6] =
+{
+  { "NETWORK_INTERFACE_UNSPECIFIED", "TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_UNSPECIFIED", 0 },
+  { "NETWORK_INTERFACE_MESH", "TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_MESH", 1 },
+  { "NETWORK_INTERFACE_WIFI", "TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_WIFI", 2 },
+  { "NETWORK_INTERFACE_ETHERNET", "TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_ETHERNET", 3 },
+  { "NETWORK_INTERFACE_4G_LTE", "TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_4G_LTE", 4 },
+  { "NETWORK_INTERFACE_LORA", "TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_LORA", 5 },
+};
+static const ProtobufCIntRange telemetry__network_interface_type__value_ranges[] = {
+{0, 0},{0, 6}
+};
+static const ProtobufCEnumValueIndex telemetry__network_interface_type__enum_values_by_name[6] =
+{
+  { "NETWORK_INTERFACE_4G_LTE", 4 },
+  { "NETWORK_INTERFACE_ETHERNET", 3 },
+  { "NETWORK_INTERFACE_LORA", 5 },
+  { "NETWORK_INTERFACE_MESH", 1 },
+  { "NETWORK_INTERFACE_UNSPECIFIED", 0 },
+  { "NETWORK_INTERFACE_WIFI", 2 },
+};
+const ProtobufCEnumDescriptor telemetry__network_interface_type__descriptor =
+{
+  PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
+  "telemetry.NetworkInterfaceType",
+  "NetworkInterfaceType",
+  "Telemetry__NetworkInterfaceType",
+  "telemetry",
+  6,
+  telemetry__network_interface_type__enum_values_by_number,
+  6,
+  telemetry__network_interface_type__enum_values_by_name,
+  1,
+  telemetry__network_interface_type__value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCEnumValue telemetry__network_type__enum_values_by_number[6] =
 {
   { "NETWORK_TYPE_UNSPECIFIED", "TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_UNSPECIFIED", 0 },
   { "NETWORK_TYPE_MQTT_1", "TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_MQTT_1", 1 },
   { "NETWORK_TYPE_LORAWAN_1", "TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_LORAWAN_1", 2 },
   { "NETWORK_TYPE_LORAWAN_2", "TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_LORAWAN_2", 3 },
   { "NETWORK_TYPE_LORAWAN_3", "TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_LORAWAN_3", 4 },
+  { "NETWORK_TYPE_MESHLINK_LORA_1", "TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_MESHLINK_LORA_1", 5 },
 };
 static const ProtobufCIntRange telemetry__network_type__value_ranges[] = {
-{0, 0},{0, 5}
+{0, 0},{0, 6}
 };
-static const ProtobufCEnumValueIndex telemetry__network_type__enum_values_by_name[5] =
+static const ProtobufCEnumValueIndex telemetry__network_type__enum_values_by_name[6] =
 {
   { "NETWORK_TYPE_LORAWAN_1", 2 },
   { "NETWORK_TYPE_LORAWAN_2", 3 },
   { "NETWORK_TYPE_LORAWAN_3", 4 },
+  { "NETWORK_TYPE_MESHLINK_LORA_1", 5 },
   { "NETWORK_TYPE_MQTT_1", 1 },
   { "NETWORK_TYPE_UNSPECIFIED", 0 },
 };
@@ -630,9 +678,9 @@ const ProtobufCEnumDescriptor telemetry__network_type__descriptor =
   "NetworkType",
   "Telemetry__NetworkType",
   "telemetry",
-  5,
+  6,
   telemetry__network_type__enum_values_by_number,
-  5,
+  6,
   telemetry__network_type__enum_values_by_name,
   1,
   telemetry__network_type__value_ranges,

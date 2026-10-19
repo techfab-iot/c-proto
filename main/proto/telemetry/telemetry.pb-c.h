@@ -254,15 +254,63 @@ typedef enum _Telemetry__Resource {
   /*
    * dBm
    */
-  TELEMETRY__RESOURCE__RESOURCE_SIGNAL_STRENGTH = 68
+  TELEMETRY__RESOURCE__RESOURCE_SIGNAL_STRENGTH = 68,
+  /*
+   * int_value, NVS meshlink/bootCnt
+   */
+  TELEMETRY__RESOURCE__RESOURCE_BOOT_COUNT = 75,
+  /*
+   * int_value = NetworkInterfaceType
+   */
+  TELEMETRY__RESOURCE__RESOURCE_NETWORK_INTERFACE = 80,
+  /*
+   * value in dBm, measured by the gateway on the received frame
+   */
+  TELEMETRY__RESOURCE__RESOURCE_LORA_RSSI = 90,
+  /*
+   * value in dB, measured by the gateway on the received frame
+   */
+  TELEMETRY__RESOURCE__RESOURCE_LORA_SNR = 91,
+  /*
+   * string_value, LoRa frame deviceAddr in hex (8 digits), proprietary address of Meshlink raw LoRa
+   */
+  TELEMETRY__RESOURCE__RESOURCE_LORA_DEVICE_ADDR = 92
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(TELEMETRY__RESOURCE)
 } Telemetry__Resource;
+typedef enum _Telemetry__NetworkInterfaceType {
+  TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_UNSPECIFIED = 0,
+  /*
+   * WiFi mesh (tef-mesh-lite)
+   */
+  TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_MESH = 1,
+  /*
+   * WiFi STA direto ao roteador
+   */
+  TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_WIFI = 2,
+  /*
+   * Ethernet cabeada
+   */
+  TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_ETHERNET = 3,
+  /*
+   * Modem celular 4G/LTE via PPP
+   */
+  TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_4G_LTE = 4,
+  /*
+   * LoRa via gateway
+   */
+  TELEMETRY__NETWORK_INTERFACE_TYPE__NETWORK_INTERFACE_LORA = 5
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(TELEMETRY__NETWORK_INTERFACE_TYPE)
+} Telemetry__NetworkInterfaceType;
 typedef enum _Telemetry__NetworkType {
   TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_UNSPECIFIED = 0,
   TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_MQTT_1 = 1,
   TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_LORAWAN_1 = 2,
   TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_LORAWAN_2 = 3,
-  TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_LORAWAN_3 = 4
+  TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_LORAWAN_3 = 4,
+  /*
+   * Meshlink proprietary raw LoRa (HMAC, custom framing); not LoRaWAN
+   */
+  TELEMETRY__NETWORK_TYPE__NETWORK_TYPE_MESHLINK_LORA_1 = 5
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(TELEMETRY__NETWORK_TYPE)
 } Telemetry__NetworkType;
 typedef enum _Telemetry__Severity {
@@ -395,6 +443,7 @@ typedef void (*Telemetry__TelemetryPack_Closure)
 /* --- descriptors --- */
 
 extern const ProtobufCEnumDescriptor    telemetry__resource__descriptor;
+extern const ProtobufCEnumDescriptor    telemetry__network_interface_type__descriptor;
 extern const ProtobufCEnumDescriptor    telemetry__network_type__descriptor;
 extern const ProtobufCEnumDescriptor    telemetry__severity__descriptor;
 extern const ProtobufCMessageDescriptor telemetry__sem_ver__descriptor;
