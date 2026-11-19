@@ -441,7 +441,7 @@ const ProtobufCMessageDescriptor telemetry__telemetry_pack__descriptor =
   (ProtobufCMessageInit) telemetry__telemetry_pack__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[74] =
+static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[75] =
 {
   { "RESOURCE_UNSPECIFIED", "TELEMETRY__RESOURCE__RESOURCE_UNSPECIFIED", 0 },
   { "RESOURCE_TEMPERATURE", "TELEMETRY__RESOURCE__RESOURCE_TEMPERATURE", 1 },
@@ -512,6 +512,7 @@ static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[74] =
   { "RESOURCE_MESH_LEVEL", "TELEMETRY__RESOURCE__RESOURCE_MESH_LEVEL", 66 },
   { "RESOURCE_PRECIPITATION", "TELEMETRY__RESOURCE__RESOURCE_PRECIPITATION", 67 },
   { "RESOURCE_SIGNAL_STRENGTH", "TELEMETRY__RESOURCE__RESOURCE_SIGNAL_STRENGTH", 68 },
+  { "RESOURCE_RESET_REASON", "TELEMETRY__RESOURCE__RESOURCE_RESET_REASON", 71 },
   { "RESOURCE_BOOT_COUNT", "TELEMETRY__RESOURCE__RESOURCE_BOOT_COUNT", 75 },
   { "RESOURCE_NETWORK_INTERFACE", "TELEMETRY__RESOURCE__RESOURCE_NETWORK_INTERFACE", 80 },
   { "RESOURCE_LORA_RSSI", "TELEMETRY__RESOURCE__RESOURCE_LORA_RSSI", 90 },
@@ -519,9 +520,9 @@ static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[74] =
   { "RESOURCE_LORA_DEVICE_ADDR", "TELEMETRY__RESOURCE__RESOURCE_LORA_DEVICE_ADDR", 92 },
 };
 static const ProtobufCIntRange telemetry__resource__value_ranges[] = {
-{0, 0},{75, 69},{80, 70},{90, 71},{0, 74}
+{0, 0},{71, 69},{75, 70},{80, 71},{90, 72},{0, 75}
 };
-static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[75] =
+static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[76] =
 {
   { "RESOURCE_ACCELERATION_X", 22 },
   { "RESOURCE_ACCELERATION_Y", 23 },
@@ -534,7 +535,7 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[75
   { "RESOURCE_BATTERY_LEVEL", 30 },
   { "RESOURCE_BATTERY_LEVEL_LOW", 33 },
   { "RESOURCE_BATTERY_VOLTAGE", 31 },
-  { "RESOURCE_BOOT_COUNT", 69 },
+  { "RESOURCE_BOOT_COUNT", 70 },
   { "RESOURCE_BREADTH", 10 },
   { "RESOURCE_BRIGHTENING", 50 },
   { "RESOURCE_BRIGHTNESS", 50 },
@@ -569,15 +570,15 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[75
   { "RESOURCE_LENGTH", 9 },
   { "RESOURCE_LOG", 46 },
   { "RESOURCE_LONGITUDE", 4 },
-  { "RESOURCE_LORA_DEVICE_ADDR", 73 },
-  { "RESOURCE_LORA_RSSI", 71 },
-  { "RESOURCE_LORA_SNR", 72 },
+  { "RESOURCE_LORA_DEVICE_ADDR", 74 },
+  { "RESOURCE_LORA_RSSI", 72 },
+  { "RESOURCE_LORA_SNR", 73 },
   { "RESOURCE_LUMINOUS_FLUX", 48 },
   { "RESOURCE_LUMINOUS_INTENSITY", 49 },
   { "RESOURCE_MANUFACTURING_DATE", 57 },
   { "RESOURCE_MESH_LEVEL", 66 },
   { "RESOURCE_MOISTURE", 41 },
-  { "RESOURCE_NETWORK_INTERFACE", 70 },
+  { "RESOURCE_NETWORK_INTERFACE", 71 },
   { "RESOURCE_N_CONCENTRATION", 61 },
   { "RESOURCE_PH", 65 },
   { "RESOURCE_POWER", 6 },
@@ -589,6 +590,7 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[75
   { "RESOURCE_RADIUS", 32 },
   { "RESOURCE_REACTIVE_POWER", 44 },
   { "RESOURCE_READ_SWITCH", 37 },
+  { "RESOURCE_RESET_REASON", 69 },
   { "RESOURCE_SIGNAL_STRENGTH", 68 },
   { "RESOURCE_SOUND", 28 },
   { "RESOURCE_SWITCH", 51 },
@@ -606,12 +608,68 @@ const ProtobufCEnumDescriptor telemetry__resource__descriptor =
   "Resource",
   "Telemetry__Resource",
   "telemetry",
-  74,
-  telemetry__resource__enum_values_by_number,
   75,
+  telemetry__resource__enum_values_by_number,
+  76,
   telemetry__resource__enum_values_by_name,
-  4,
+  5,
   telemetry__resource__value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCEnumValue telemetry__reset_reason__enum_values_by_number[16] =
+{
+  { "RESET_REASON_UNKNOWN", "TELEMETRY__RESET_REASON__RESET_REASON_UNKNOWN", 0 },
+  { "RESET_REASON_POWERON", "TELEMETRY__RESET_REASON__RESET_REASON_POWERON", 1 },
+  { "RESET_REASON_EXT", "TELEMETRY__RESET_REASON__RESET_REASON_EXT", 2 },
+  { "RESET_REASON_SW", "TELEMETRY__RESET_REASON__RESET_REASON_SW", 3 },
+  { "RESET_REASON_PANIC", "TELEMETRY__RESET_REASON__RESET_REASON_PANIC", 4 },
+  { "RESET_REASON_INT_WDT", "TELEMETRY__RESET_REASON__RESET_REASON_INT_WDT", 5 },
+  { "RESET_REASON_TASK_WDT", "TELEMETRY__RESET_REASON__RESET_REASON_TASK_WDT", 6 },
+  { "RESET_REASON_WDT", "TELEMETRY__RESET_REASON__RESET_REASON_WDT", 7 },
+  { "RESET_REASON_DEEPSLEEP", "TELEMETRY__RESET_REASON__RESET_REASON_DEEPSLEEP", 8 },
+  { "RESET_REASON_BROWNOUT", "TELEMETRY__RESET_REASON__RESET_REASON_BROWNOUT", 9 },
+  { "RESET_REASON_SDIO", "TELEMETRY__RESET_REASON__RESET_REASON_SDIO", 10 },
+  { "RESET_REASON_USB", "TELEMETRY__RESET_REASON__RESET_REASON_USB", 11 },
+  { "RESET_REASON_JTAG", "TELEMETRY__RESET_REASON__RESET_REASON_JTAG", 12 },
+  { "RESET_REASON_EFUSE", "TELEMETRY__RESET_REASON__RESET_REASON_EFUSE", 13 },
+  { "RESET_REASON_PWR_GLITCH", "TELEMETRY__RESET_REASON__RESET_REASON_PWR_GLITCH", 14 },
+  { "RESET_REASON_CPU_LOCKUP", "TELEMETRY__RESET_REASON__RESET_REASON_CPU_LOCKUP", 15 },
+};
+static const ProtobufCIntRange telemetry__reset_reason__value_ranges[] = {
+{0, 0},{0, 16}
+};
+static const ProtobufCEnumValueIndex telemetry__reset_reason__enum_values_by_name[16] =
+{
+  { "RESET_REASON_BROWNOUT", 9 },
+  { "RESET_REASON_CPU_LOCKUP", 15 },
+  { "RESET_REASON_DEEPSLEEP", 8 },
+  { "RESET_REASON_EFUSE", 13 },
+  { "RESET_REASON_EXT", 2 },
+  { "RESET_REASON_INT_WDT", 5 },
+  { "RESET_REASON_JTAG", 12 },
+  { "RESET_REASON_PANIC", 4 },
+  { "RESET_REASON_POWERON", 1 },
+  { "RESET_REASON_PWR_GLITCH", 14 },
+  { "RESET_REASON_SDIO", 10 },
+  { "RESET_REASON_SW", 3 },
+  { "RESET_REASON_TASK_WDT", 6 },
+  { "RESET_REASON_UNKNOWN", 0 },
+  { "RESET_REASON_USB", 11 },
+  { "RESET_REASON_WDT", 7 },
+};
+const ProtobufCEnumDescriptor telemetry__reset_reason__descriptor =
+{
+  PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
+  "telemetry.ResetReason",
+  "ResetReason",
+  "Telemetry__ResetReason",
+  "telemetry",
+  16,
+  telemetry__reset_reason__enum_values_by_number,
+  16,
+  telemetry__reset_reason__enum_values_by_name,
+  1,
+  telemetry__reset_reason__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
 static const ProtobufCEnumValue telemetry__network_interface_type__enum_values_by_number[6] =

@@ -177,7 +177,7 @@ static const ProtobufCFieldDescriptor command__trigger__field_descriptors[5] =
     offsetof(Command__Trigger, range),
     NULL,
     NULL,
-    0 | PROTOBUF_C_FIELD_FLAG_PACKED,             /* flags */
+    PROTOBUF_C_FIELD_FLAG_PACKED,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
