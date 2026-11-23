@@ -19,6 +19,17 @@ PROTOBUF_C__BEGIN_DECLS
 
 /* --- enums --- */
 
+/*
+ * Commands the concentrator accepts. Each project numbers its own commands, so
+ * these values are independent of the fotocelula enum. Firmware released before
+ * this enum existed handles reboot as the legacy value 10; new firmware accepts
+ * both until those units are updated.
+ */
+typedef enum _Projects__Concentradora__Resource {
+  PROJECTS__CONCENTRADORA__RESOURCE__RESOURCE_UNSPECIFIED = 0,
+  PROJECTS__CONCENTRADORA__RESOURCE__RESOURCE_REBOOT = 1
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(PROJECTS__CONCENTRADORA__RESOURCE)
+} Projects__Concentradora__Resource;
 typedef enum _Projects__Concentradora__Alert {
   PROJECTS__CONCENTRADORA__ALERT__ALERT_UNSPECIFIED = 0,
   PROJECTS__CONCENTRADORA__ALERT__ALERT_NO_VOLTAGE = 1,
@@ -40,6 +51,7 @@ typedef enum _Projects__Concentradora__Alert {
 
 /* --- descriptors --- */
 
+extern const ProtobufCEnumDescriptor    projects__concentradora__resource__descriptor;
 extern const ProtobufCEnumDescriptor    projects__concentradora__alert__descriptor;
 
 PROTOBUF_C__END_DECLS

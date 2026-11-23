@@ -7,6 +7,34 @@
 #endif
 
 #include "projects/concentradora/concentradora.pb-c.h"
+static const ProtobufCEnumValue projects__concentradora__resource__enum_values_by_number[2] =
+{
+  { "RESOURCE_UNSPECIFIED", "PROJECTS__CONCENTRADORA__RESOURCE__RESOURCE_UNSPECIFIED", 0 },
+  { "RESOURCE_REBOOT", "PROJECTS__CONCENTRADORA__RESOURCE__RESOURCE_REBOOT", 1 },
+};
+static const ProtobufCIntRange projects__concentradora__resource__value_ranges[] = {
+{0, 0},{0, 2}
+};
+static const ProtobufCEnumValueIndex projects__concentradora__resource__enum_values_by_name[2] =
+{
+  { "RESOURCE_REBOOT", 1 },
+  { "RESOURCE_UNSPECIFIED", 0 },
+};
+const ProtobufCEnumDescriptor projects__concentradora__resource__descriptor =
+{
+  PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
+  "projects.concentradora.Resource",
+  "Resource",
+  "Projects__Concentradora__Resource",
+  "projects.concentradora",
+  2,
+  projects__concentradora__resource__enum_values_by_number,
+  2,
+  projects__concentradora__resource__enum_values_by_name,
+  1,
+  projects__concentradora__resource__value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
 static const ProtobufCEnumValue projects__concentradora__alert__enum_values_by_number[7] =
 {
   { "ALERT_UNSPECIFIED", "PROJECTS__CONCENTRADORA__ALERT__ALERT_UNSPECIFIED", 0 },

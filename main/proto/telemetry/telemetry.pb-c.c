@@ -441,7 +441,7 @@ const ProtobufCMessageDescriptor telemetry__telemetry_pack__descriptor =
   (ProtobufCMessageInit) telemetry__telemetry_pack__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[75] =
+static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[89] =
 {
   { "RESOURCE_UNSPECIFIED", "TELEMETRY__RESOURCE__RESOURCE_UNSPECIFIED", 0 },
   { "RESOURCE_TEMPERATURE", "TELEMETRY__RESOURCE__RESOURCE_TEMPERATURE", 1 },
@@ -518,11 +518,25 @@ static const ProtobufCEnumValue telemetry__resource__enum_values_by_number[75] =
   { "RESOURCE_LORA_RSSI", "TELEMETRY__RESOURCE__RESOURCE_LORA_RSSI", 90 },
   { "RESOURCE_LORA_SNR", "TELEMETRY__RESOURCE__RESOURCE_LORA_SNR", 91 },
   { "RESOURCE_LORA_DEVICE_ADDR", "TELEMETRY__RESOURCE__RESOURCE_LORA_DEVICE_ADDR", 92 },
+  { "RESOURCE_HEAP_MIN_EVER", "TELEMETRY__RESOURCE__RESOURCE_HEAP_MIN_EVER", 93 },
+  { "RESOURCE_SOC_MODEL", "TELEMETRY__RESOURCE__RESOURCE_SOC_MODEL", 94 },
+  { "RESOURCE_CHIP_REVISION", "TELEMETRY__RESOURCE__RESOURCE_CHIP_REVISION", 95 },
+  { "RESOURCE_MODEM_IMEI", "TELEMETRY__RESOURCE__RESOURCE_MODEM_IMEI", 96 },
+  { "RESOURCE_MODEM_NETWORK_MODE", "TELEMETRY__RESOURCE__RESOURCE_MODEM_NETWORK_MODE", 97 },
+  { "RESOURCE_MODEM_BAND", "TELEMETRY__RESOURCE__RESOURCE_MODEM_BAND", 98 },
+  { "RESOURCE_MODEM_CELL_ID", "TELEMETRY__RESOURCE__RESOURCE_MODEM_CELL_ID", 99 },
+  { "RESOURCE_MODEM_RSRP", "TELEMETRY__RESOURCE__RESOURCE_MODEM_RSRP", 100 },
+  { "RESOURCE_MODEM_SNR", "TELEMETRY__RESOURCE__RESOURCE_MODEM_SNR", 101 },
+  { "RESOURCE_MODEM_MCC", "TELEMETRY__RESOURCE__RESOURCE_MODEM_MCC", 102 },
+  { "RESOURCE_MODEM_MNC", "TELEMETRY__RESOURCE__RESOURCE_MODEM_MNC", 103 },
+  { "RESOURCE_AP_STATION_COUNT", "TELEMETRY__RESOURCE__RESOURCE_AP_STATION_COUNT", 104 },
+  { "RESOURCE_PPP_DROP_COUNT", "TELEMETRY__RESOURCE__RESOURCE_PPP_DROP_COUNT", 105 },
+  { "RESOURCE_MQTT_RECONNECT_COUNT", "TELEMETRY__RESOURCE__RESOURCE_MQTT_RECONNECT_COUNT", 106 },
 };
 static const ProtobufCIntRange telemetry__resource__value_ranges[] = {
-{0, 0},{71, 69},{75, 70},{80, 71},{90, 72},{0, 75}
+{0, 0},{71, 69},{75, 70},{80, 71},{90, 72},{0, 89}
 };
-static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[76] =
+static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[90] =
 {
   { "RESOURCE_ACCELERATION_X", 22 },
   { "RESOURCE_ACCELERATION_Y", 23 },
@@ -531,6 +545,7 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[76
   { "RESOURCE_ALTITUDE", 5 },
   { "RESOURCE_ANGLE", 8 },
   { "RESOURCE_APPARENT_POWER", 42 },
+  { "RESOURCE_AP_STATION_COUNT", 86 },
   { "RESOURCE_AREA", 15 },
   { "RESOURCE_BATTERY_LEVEL", 30 },
   { "RESOURCE_BATTERY_LEVEL_LOW", 33 },
@@ -539,6 +554,7 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[76
   { "RESOURCE_BREADTH", 10 },
   { "RESOURCE_BRIGHTENING", 50 },
   { "RESOURCE_BRIGHTNESS", 50 },
+  { "RESOURCE_CHIP_REVISION", 77 },
   { "RESOURCE_CO2_CONCENTRATION", 27 },
   { "RESOURCE_COMPASS_X", 34 },
   { "RESOURCE_COMPASS_Y", 35 },
@@ -560,6 +576,7 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[76
   { "RESOURCE_HARDWARE_ID", 56 },
   { "RESOURCE_HARDWARE_VERSION", 55 },
   { "RESOURCE_HEADING", 25 },
+  { "RESOURCE_HEAP_MIN_EVER", 75 },
   { "RESOURCE_HEIGHT", 11 },
   { "RESOURCE_HUMIDITY", 2 },
   { "RESOURCE_ILLUMINANCE", 21 },
@@ -577,12 +594,22 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[76
   { "RESOURCE_LUMINOUS_INTENSITY", 49 },
   { "RESOURCE_MANUFACTURING_DATE", 57 },
   { "RESOURCE_MESH_LEVEL", 66 },
+  { "RESOURCE_MODEM_BAND", 80 },
+  { "RESOURCE_MODEM_CELL_ID", 81 },
+  { "RESOURCE_MODEM_IMEI", 78 },
+  { "RESOURCE_MODEM_MCC", 84 },
+  { "RESOURCE_MODEM_MNC", 85 },
+  { "RESOURCE_MODEM_NETWORK_MODE", 79 },
+  { "RESOURCE_MODEM_RSRP", 82 },
+  { "RESOURCE_MODEM_SNR", 83 },
   { "RESOURCE_MOISTURE", 41 },
+  { "RESOURCE_MQTT_RECONNECT_COUNT", 88 },
   { "RESOURCE_NETWORK_INTERFACE", 71 },
   { "RESOURCE_N_CONCENTRATION", 61 },
   { "RESOURCE_PH", 65 },
   { "RESOURCE_POWER", 6 },
   { "RESOURCE_POWER_FACTOR", 45 },
+  { "RESOURCE_PPP_DROP_COUNT", 87 },
   { "RESOURCE_PRECIPITATION", 67 },
   { "RESOURCE_PRESENCE", 38 },
   { "RESOURCE_PRESSURE", 7 },
@@ -592,6 +619,7 @@ static const ProtobufCEnumValueIndex telemetry__resource__enum_values_by_name[76
   { "RESOURCE_READ_SWITCH", 37 },
   { "RESOURCE_RESET_REASON", 69 },
   { "RESOURCE_SIGNAL_STRENGTH", 68 },
+  { "RESOURCE_SOC_MODEL", 76 },
   { "RESOURCE_SOUND", 28 },
   { "RESOURCE_SWITCH", 51 },
   { "RESOURCE_TEMPERATURE", 1 },
@@ -608,9 +636,9 @@ const ProtobufCEnumDescriptor telemetry__resource__descriptor =
   "Resource",
   "Telemetry__Resource",
   "telemetry",
-  75,
+  89,
   telemetry__resource__enum_values_by_number,
-  76,
+  90,
   telemetry__resource__enum_values_by_name,
   5,
   telemetry__resource__value_ranges,

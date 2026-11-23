@@ -278,7 +278,63 @@ typedef enum _Telemetry__Resource {
   /*
    * string_value, LoRa frame deviceAddr in hex (8 digits), proprietary address of Meshlink raw LoRa
    */
-  TELEMETRY__RESOURCE__RESOURCE_LORA_DEVICE_ADDR = 92
+  TELEMETRY__RESOURCE__RESOURCE_LORA_DEVICE_ADDR = 92,
+  /*
+   * B (int_value), lowest free heap since boot
+   */
+  TELEMETRY__RESOURCE__RESOURCE_HEAP_MIN_EVER = 93,
+  /*
+   * string_value, e.g. "esp32s3", "esp32c6". Static: sent in the first uplink
+   */
+  TELEMETRY__RESOURCE__RESOURCE_SOC_MODEL = 94,
+  /*
+   * int_value = major*100+minor, e.g. 301 = v3.1. Static: sent in the first uplink
+   */
+  TELEMETRY__RESOURCE__RESOURCE_CHIP_REVISION = 95,
+  /*
+   * string_value, modem IMEI (15 digits). Static: sent in the first uplink
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MODEM_IMEI = 96,
+  /*
+   * int_value: 0=GSM, 2=WCDMA/UTRAN, 7=LTE
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MODEM_NETWORK_MODE = 97,
+  /*
+   * int_value = LTE band number (3GPP), e.g. 28
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MODEM_BAND = 98,
+  /*
+   * int_value, serving cell ID (0 = unknown)
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MODEM_CELL_ID = 99,
+  /*
+   * value in dBm (LTE Reference Signal Received Power)
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MODEM_RSRP = 100,
+  /*
+   * value in dB (LTE signal-to-noise ratio)
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MODEM_SNR = 101,
+  /*
+   * int_value, Mobile Country Code (ITU E.212), e.g. 724 = Brazil
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MODEM_MCC = 102,
+  /*
+   * int_value, Mobile Network Code (ITU E.212), identifies the carrier within the country
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MODEM_MNC = 103,
+  /*
+   * int_value, number of stations associated to the soft AP
+   */
+  TELEMETRY__RESOURCE__RESOURCE_AP_STATION_COUNT = 104,
+  /*
+   * int_value, PPP (4G) sessions lost since boot. Monotonic until the next reboot
+   */
+  TELEMETRY__RESOURCE__RESOURCE_PPP_DROP_COUNT = 105,
+  /*
+   * int_value, MQTT disconnections since boot. Monotonic until the next reboot
+   */
+  TELEMETRY__RESOURCE__RESOURCE_MQTT_RECONNECT_COUNT = 106
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(TELEMETRY__RESOURCE)
 } Telemetry__Resource;
 /*
